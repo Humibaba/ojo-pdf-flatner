@@ -79,6 +79,9 @@ def flatten():
 
     except Exception as e:
         return f'שגיאה בעיבוד: {str(e)}', 500
-
+@app.route('/robots.txt')
+def robots():
+    return send_file('static/robots.txt')
+    
 if __name__ == '__main__':
     app.run(debug=True)
