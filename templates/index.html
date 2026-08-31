@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJO - מרדד PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <div class="icon">📄✨</div>
+        <h1>השטחת קובצי PDF</h1>
+        <p class="subtitle"> משטיח PDF</p>
+
+        <form id="upload-form" action="/flatten" method="POST" enctype="multipart/form-data">
+            <div class="drop-zone" id="drop-zone">
+                <span class="drop-zone-text">  נא לגרור או לבחור קובץ PDF כאן</span>
+                <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" required hidden>
+                <div id="file-name-display" class="file-name hidden"></div>
+            </div>
+
+            <button type="submit" id="submit-btn" disabled>  הורד PDF מרודד</button>
+        </form>
+
+        <div id="status" class="status-box hidden">
+            <p id="status-text"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
